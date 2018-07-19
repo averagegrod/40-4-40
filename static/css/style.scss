@@ -1,0 +1,29 @@
+@import 'fonts';
+@import 'flipclock';
+
+li.is-active{
+	text-decoration: underline;
+}
+
+.pb{
+	margin-top: 1rem;
+}
+
+.singleIcon{
+	margin-right: 1rem;
+}
+.hero{
+	margin-bottom: 1rem;
+}
+
+.no-display{
+	display: none;
+}
+
+hr{
+	background-color: #dbdbdb;
+}
+
+#turn-forty{
+	zoom: .8;
+}

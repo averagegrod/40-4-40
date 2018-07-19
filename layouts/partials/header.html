@@ -1,0 +1,18 @@
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-size-1"><a href="{{ .Site.BaseURL }}">{{ .Site.Title}}</a></h1>
+      <h2 class="subtitle is-size-3">{{ if .IsPage }}{{ .Params.Title }}{{ else }}{{ .Params.Subtitle }}{{ end }}</h2>
+    </div>
+  </div>
+  <div class="hero-footer">
+      <div class="container has-text-centered">
+        <ul id="nav">
+          <li class="is-inline {{  if eq .Section "blog" }} is-active {{ end }}"><a href="{{ .Site.BaseURL }}blog">Blog</a></li>
+          <li class="is-inline {{  if eq .Section "goals" }} is-active {{ end }}"><a href="{{ .Site.BaseURL }}goals">Goals</a></li>
+          <li class="is-inline {{  if eq .Section "about" }} is-active {{ end }}"><a href="{{ .Site.BaseURL }}about">About</a></li>
+
+        </ul>
+      </div>
+  </div>  
+</section>

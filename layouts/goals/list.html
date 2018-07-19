@@ -1,0 +1,23 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<div class="container">
+{{ range .Pages }}
+	<div class="columns">
+		<div class="column is-narrow">
+		<span class="{{ if .Params.complete }}has-text-black{{ else }}has-text-grey-lighter{{ end }} icon-{{ .Params.icon }}"></span>
+		</div>
+		<div class="column"><span class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+			<div class="columns">
+			<div class="column">
+				{{ .Content }}
+				<div class="columns">
+					<div class="column is-10"><progress class="progress is-success" value="{{ .Params.percent }}" max="100">{{ .Params.percent }}</progress></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ end }}
+</div>
+{{ partial "footer.html" . }}

@@ -1,0 +1,17 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<div class="container">
+{{ range .Pages }}
+	<div class="columns">
+		<div class="column"><span class="title">{{ .Title }}</span>
+			<div class="columns">
+			<div class="column">
+				{{ .Content }}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ end }}
+</div>
+{{ partial "footer.html" . }}

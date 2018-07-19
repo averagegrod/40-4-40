@@ -1,0 +1,40 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<div class="container">
+  <div class="columns">
+    <div class="column is-two-thirds">
+    {{ range where .Data.Pages "Section" "blog" }}
+    	<h2 class="is-size-2">{{ .Title }}</h2>
+      <p>{{ .Summary }} <a href="{{ .Permalink }}">more...</a></p>
+    	{{ end }}
+    </div>
+    <div class="column">      
+      <div class="tile is-ancestor">      
+        <div class="tile is-parent is-vertical">
+          <div id="turn-forty"></div>
+          <div class="tile is-child">
+          {{ range first 3 (where .Data.Pages.ByLastmod.Reverse "Section" "goals") }}
+            <div class="tile is-child">
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <span class="{{ if .Params.complete }}has-text-black{{ else }}has-text-grey-lighter{{ end }} icon-{{ .Params.icon }}"></span>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4"><a href="{{.Permalink}}">{{ .Title }}</a></p>
+                      <p class="subtitle is-6">{{ .Lastmod.Format "Mon, Jan 2, 2006" }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+{{ partial "footer.html" . }}
